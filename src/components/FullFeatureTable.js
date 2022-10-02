@@ -47,9 +47,9 @@ export const FullFeatureTable = ({ posts }) => {
   const { globalFilter, pageIndex, pageSize } = state;
 
   return (
-    <div className="flex flex-col mt-16">
-      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+    <div className="flex flex-col mt-6">
+      <div className="overflow-x-auto ">
+        <div className="inline-block min-w-full py-2 align-middle ">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
           <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
             <table
