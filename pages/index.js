@@ -58,7 +58,7 @@ export default function Home({ going, coming }) {
             >
               Departures:{" "}
               <span className="font-semibold "> {going.length} </span>- flights
-              <div className="flex mt-2 divide-x-4 divide-double">
+              <div className="flex flex-wrap mt-2 divide-x-4 divide-double">
                 {goingFlights.map((f, i) => (
                   <span key={i} className="px-2 text-gray-600 ">
                     {f}
@@ -76,7 +76,7 @@ export default function Home({ going, coming }) {
             >
               Arrivals:{" "}
               <span className="font-semibold "> {coming.length} </span>- flights
-              <div className="flex mt-2 divide-x-4 divide-double">
+              <div className="flex flex-wrap mt-2 divide-x-4 divide-double">
                 {comingFlights.map((f, i) => (
                   <span key={i} className="px-2 text-gray-600 ">
                     {f}
