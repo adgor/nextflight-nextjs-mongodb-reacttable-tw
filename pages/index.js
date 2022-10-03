@@ -51,18 +51,22 @@ export default function Home({ going, coming }) {
   return (
     <Fragment>
       <Head>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        />
         <title>NEXTFLIGHT</title>
       </Head>
 
       <main className="container px-5 mx-auto py-14">
-        <h1 className="pb-6 text-4xl italic font-extrabold tracking-tight text-center text-gray-900 uppercase sm:text-5xl md:text-6xl">
-          <span className="text-indigo-600 ">next</span>Flight
+        <h1 className="pb-6 text-4xl italic font-extrabold tracking-tight text-center text-white uppercase sm:text-5xl md:text-6xl">
+          <span className="text-green-500 ">next</span>Flight
         </h1>
 
-        <div className="grid max-w-screen-xl divide-x sm:mx-auto lg:grid-cols-2 ">
+        <div className="grid max-w-screen-xl mx-auto space-y-12 lg:space-y-0 lg:divide-x divide-gray-600/30 lg:grid-cols-2 ">
           <div className="sm:px-6">
             <div
-              className="p-4 text-gray-700 border-l-4 border-gray-700 bg-gray-50"
+              className="p-4 text-white border-l-4 border-gray-500/80 bg-gray-600/30"
               role="alert"
             >
               Departures:{" "}
@@ -71,7 +75,7 @@ export default function Home({ going, coming }) {
                 {goingFlights.map((f, ind) => (
                   <span
                     key={ind}
-                    className="px-2 py-1 text-sm border text-gray-600"
+                    className="px-2 py-1 text-sm font-medium tracking-wide text-white border border-gray-500/70"
                   >
                     {f[0]}: {f[1]}
                   </span>
@@ -83,7 +87,7 @@ export default function Home({ going, coming }) {
 
           <div className="sm:px-6">
             <div
-              className="p-4 text-gray-700 border-l-4 border-gray-700 bg-gray-50"
+              className="p-4 text-white border-l-4 border-gray-500/80 bg-gray-600/30"
               role="alert"
             >
               Arrivals:{" "}
@@ -92,7 +96,7 @@ export default function Home({ going, coming }) {
                 {comingFlights.map((f, ind) => (
                   <span
                     key={ind}
-                    className="px-2 py-1 text-sm border text-gray-600"
+                    className="px-2 py-1 text-sm font-medium tracking-wide text-white border border-gray-500/70"
                   >
                     {f[0]}: {f[1]}
                   </span>

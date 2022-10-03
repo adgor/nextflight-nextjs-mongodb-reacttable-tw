@@ -5,11 +5,11 @@ export const GlobalFilter = ({ filter, setFilter }) => {
     <div className="mb-4">
       <span
         // className="py-4 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none"
-        className="relative inline-flex items-center px-6 py-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+        className="relative inline-flex items-center px-6 py-3 text-sm font-medium text-white border border-gray-500 rounded-md hover:border-white "
       >
         Kerko:{" "}
         <input
-          className="ml-3 leading-tight text-gray-700 bg-transparent border-b border-gray-200 appearance-none focus:outline-none "
+          className="ml-3 leading-tight text-white bg-transparent border-b border-gray-500 appearance-none focus:border-white focus:outline-none "
           placeholder="Destinacion apo date"
           value={filter || ""}
           onChange={(e) => setFilter(e.target.value)}

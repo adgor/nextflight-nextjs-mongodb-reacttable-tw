@@ -4,7 +4,7 @@ export default function Modal(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
-      <div className="text-right">
+      <div className="mt-16 text-right ">
         <button
           className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-red-500 rounded shadow outline-none active:bg-red-700 hover:shadow-lg focus:outline-none"
           type="button"

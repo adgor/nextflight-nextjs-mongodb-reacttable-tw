@@ -51,12 +51,12 @@ export const FullFeatureTable = ({ posts }) => {
       <div className="overflow-x-auto ">
         <div className="inline-block min-w-full py-2 align-middle ">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-          <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+          <div className="overflow-hidden border-gray-400 shadow border-y sm:rounded-lg">
             <table
               {...getTableProps()}
-              className="min-w-full divide-y divide-gray-200"
+              className="min-w-full divide-y divide-gray-600"
             >
-              <thead className="bg-gray-50">
+              <thead className=" bg-gray-600/30">
                 {headerGroups.map((headerGroup) => (
                   <tr
                     className="sticky top-0"
@@ -64,18 +64,22 @@ export const FullFeatureTable = ({ posts }) => {
                   >
                     {headerGroup.headers.map((column) => (
                       <th
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                        className="px-6 py-3 text-sm tracking-wider text-left text-gray-100 uppercase "
                         {...column.getHeaderProps(
                           column.getSortByToggleProps()
                         )}
                       >
                         {column.render("Header")}
                         <span>
-                          {column.isSorted
-                            ? column.isSortedDesc
-                              ? " 🔽"
-                              : " 🔼"
-                            : ""}
+                          {column.isSorted ? (
+                            column.isSortedDesc ? (
+                              <i class=" ml-2  fa fa-sort-desc"></i>
+                            ) : (
+                              <i class="ml-2 fa fa-sort-asc"></i>
+                            )
+                          ) : (
+                            ""
+                          )}
                         </span>
                       </th>
                     ))}
@@ -84,16 +88,19 @@ export const FullFeatureTable = ({ posts }) => {
               </thead>
               <tbody
                 {...getTableBodyProps()}
-                className="bg-white divide-y divide-gray-200"
+                className="divide-y divide-gray-600 "
               >
                 {page.map((row) => {
                   prepareRow(row);
                   return (
-                    <tr className=" hover:bg-gray-50" {...row.getRowProps()}>
+                    <tr
+                      className=" hover:bg-gray-600/20"
+                      {...row.getRowProps()}
+                    >
                       {row.cells.map((cell) => {
                         return (
                           <td
-                            className="px-6 py-4 text-sm text-gray-500"
+                            className="px-6 py-4 text-sm text-white"
                             {...cell.getCellProps()}
                           >
                             {cell.render("Cell")}
@@ -106,15 +113,15 @@ export const FullFeatureTable = ({ posts }) => {
               </tbody>
             </table>
           </div>
-          <div className="flex items-center justify-between py-3 bg-white border-t border-gray-200 ">
+          <div className="flex items-center justify-between py-3 bg-bgk ">
             <div className="sm:flex-1 sm:flex sm:items-center sm:justify-between">
               <div>
                 <nav
-                  className="relative z-0 inline-flex -space-x-px rounded-md shadow-sm"
+                  className="relative z-0 inline-flex -space-x-px rounded-md "
                   aria-label="Pagination"
                 >
                   <select
-                    className="relative inline-flex items-center px-2 py-2 mr-4 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md cursor-pointer disabled:opacity-50 hover:bg-gray-50 "
+                    className="relative inline-flex items-center px-2 py-2 mr-4 text-sm font-medium text-gray-300 border border-gray-500 rounded-md cursor-pointer hover:text-white bg-bgk focus:bg-bgk focus:border-white disabled:opacity-50 hover:border-gray-400"
                     name="pageSize"
                     value={pageSize}
                     onChange={(e) => setPageSize(Number(e.target.value))}
@@ -128,7 +135,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => gotoPage(0)}
                     disabled={!canPreviousPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-pointer disabled:opacity-50 rounded-l-md hover:bg-gray-50"
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 bg-bgk disabled:opacity-50 rounded-l-md "
                   >
                     <ChevronDoubleLeftIcon
                       className="w-5 h-5"
@@ -138,7 +145,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-pointer disabled:opacity-50 hover:bg-gray-50"
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 bg-bgk disabled:opacity-50 "
                   >
                     <span className="sr-only">Previous</span>
                     <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
@@ -148,14 +155,14 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     href="#"
                     aria-current="page"
-                    className="relative z-10 inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-500 bg-indigo-50"
+                    className="relative z-10 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-300 border border-gray-400 "
                   >
                     {pageIndex + 1}
                   </a>
 
                   <a
                     href="#"
-                    className="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50"
+                    className="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 border border-gray-500 hover:border-gray-400"
                   >
                     of {pageOptions.length}
                   </a>
@@ -163,7 +170,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => nextPage()}
                     disabled={!canNextPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-pointer disabled:opacity-50 hover:bg-gray-50"
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer disabled:opacity-50 hover:border-gray-400"
                   >
                     <span className="sr-only">Next</span>
                     <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
@@ -171,7 +178,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => gotoPage(pageCount - 1)}
                     disabled={!canNextPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-pointer disabled:opacity-50 rounded-r-md hover:bg-gray-50"
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:text-gray-400 disabled:opacity-10 rounded-r-md hover:border-gray-400"
                   >
                     <ChevronDoubleRightIcon
                       className="w-5 h-5"
