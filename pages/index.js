@@ -17,15 +17,24 @@ export default function Home({ going, coming }) {
   // let res = going.map((p) => p.pname);
 
   const getUniqueValues = (data) => {
+    // get flight origin
     let f = data.map((p) => p.pname);
     // console.log(data);
-    const getSortedUniqueData = (array) => [...new Set(array)];
 
-    return getSortedUniqueData(f);
-    // array.filter(
-    //
-    //   (currentValue, index, rr) => arr.indexOf(currentValue) === index
-    // );
+    // get uniqe flight origin
+    // const getSortedUniqueData = (array) => [...new Set(array)];
+
+    //get each origin w/ total flight
+    const counts = {};
+    f.forEach(function (x) {
+      counts[x] = (counts[x] || 0) + 1;
+    });
+
+    // set each flight w/ tot flight to array item
+    let toArr = Object.entries(counts);
+
+    // return unique origin && flight nr. for each origin
+    return toArr; // getSortedUniqueData(f);
   };
 
   // getUniqueValues(going);
@@ -58,10 +67,13 @@ export default function Home({ going, coming }) {
             >
               Departures:{" "}
               <span className="font-semibold "> {going.length} </span>- flights
-              <div className="flex flex-wrap mt-2 divide-x-4 divide-double">
-                {goingFlights.map((f, i) => (
-                  <span key={i} className="px-2 text-gray-600 ">
-                    {f}
+              <div className="grid grid-cols-3 gap-1 mt-2 ">
+                {goingFlights.map((f, ind) => (
+                  <span
+                    key={ind}
+                    className="px-2 py-1 text-sm border text-gray-600"
+                  >
+                    {f[0]}: {f[1]}
                   </span>
                 ))}
               </div>
@@ -76,10 +88,13 @@ export default function Home({ going, coming }) {
             >
               Arrivals:{" "}
               <span className="font-semibold "> {coming.length} </span>- flights
-              <div className="flex flex-wrap mt-2 divide-x-4 divide-double">
-                {comingFlights.map((f, i) => (
-                  <span key={i} className="px-2 text-gray-600 ">
-                    {f}
+              <div className="grid grid-cols-3 gap-1 mt-2 ">
+                {comingFlights.map((f, ind) => (
+                  <span
+                    key={ind}
+                    className="px-2 py-1 text-sm border text-gray-600"
+                  >
+                    {f[0]}: {f[1]}
                   </span>
                 ))}
               </div>
