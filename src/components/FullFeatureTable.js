@@ -113,7 +113,7 @@ export const FullFeatureTable = ({ posts }) => {
               </tbody>
             </table>
           </div>
-          <div className="flex items-center justify-between py-3 bg-bgk ">
+          <div className="flex items-center justify-between py-3 ">
             <div className="sm:flex-1 sm:flex sm:items-center sm:justify-between">
               <div>
                 <nav
@@ -121,7 +121,7 @@ export const FullFeatureTable = ({ posts }) => {
                   aria-label="Pagination"
                 >
                   <select
-                    className="relative inline-flex items-center px-2 py-2 mr-4 text-sm font-medium text-gray-300 border border-gray-500 rounded-md cursor-pointer hover:text-white bg-bgk focus:bg-bgk focus:border-white disabled:opacity-50 hover:border-gray-400"
+                    className="relative inline-flex items-center px-2 py-2 mr-4 text-sm font-medium text-gray-300 border border-gray-500 rounded-md bg-transparent cursor-pointer hover:text-white  focus:border-white disabled:opacity-50 hover:border-gray-400"
                     name="pageSize"
                     value={pageSize}
                     onChange={(e) => setPageSize(Number(e.target.value))}
@@ -135,7 +135,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => gotoPage(0)}
                     disabled={!canPreviousPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 bg-bgk disabled:opacity-50 rounded-l-md "
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 disabled:opacity-50 rounded-l-md "
                   >
                     <ChevronDoubleLeftIcon
                       className="w-5 h-5"
@@ -145,7 +145,7 @@ export const FullFeatureTable = ({ posts }) => {
                   <a
                     onClick={() => previousPage()}
                     disabled={!canPreviousPage}
-                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 bg-bgk disabled:opacity-50 "
+                    className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 border border-gray-500 cursor-pointer hover:border-gray-400 hover:text-gray-400 disabled:opacity-50 "
                   >
                     <span className="sr-only">Previous</span>
                     <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
